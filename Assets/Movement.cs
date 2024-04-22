@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
         {
             if(collision.gameObject.tag == "death")
                 {
-                    transform.position = new Vector3(spawn.transform.position);
+                    transform.position = new Vector3(1.0f, 1.0f, 1.0f);
                 }
         
             if(collision.gameObject.tag == "Floor")
