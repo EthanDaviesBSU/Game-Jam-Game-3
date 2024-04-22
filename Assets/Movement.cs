@@ -65,6 +65,11 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
         {
+            if(collision.gameObject.tag == "death")
+                {
+                    transform.position = new Vector3(spawn.transform.position);
+                }
+        
             if(collision.gameObject.tag == "Floor")
             {
                 isJump = false;
