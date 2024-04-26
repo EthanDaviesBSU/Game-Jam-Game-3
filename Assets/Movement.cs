@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
                 isJump = false;
                 inAir = 1f;
                 movementEase = 0.5f;
-
+                // if you walk off a ledge, you can still jump
             }
         }
 }
