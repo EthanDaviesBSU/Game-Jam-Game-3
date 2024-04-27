@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Floor")
         {
-            isJump = true;
+            isJump = true;  
         }
     }
 
@@ -77,6 +77,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey ("space") && !isJump)
         {
             _RigidBody.AddForce(Vector2.up * jumpVelocity);
+            isJump = true;
         }
 
         if(isJump == true)
