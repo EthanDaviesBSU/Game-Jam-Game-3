@@ -8,6 +8,7 @@ public class QuestTracker : MonoBehaviour
     private int chickenQuest = 0;
 
     public Dialogue chickenDialogue;
+    public Dialogue nestDialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -24,23 +25,31 @@ public class QuestTracker : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Egg")
+        {
+            collision.gameObject.SetActive(false);
+            chickenQuest++;
+            if (chickenQuest == 6)
             {
-                collision.gameObject.SetActive(false);
-                chickenQuest++;
-                if (chickenQuest == 1)
-                {
-                    chickenQuestEnd();
-                }
+                chickenQuestEnd();
             }
+        }
     }
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(Dialogue dialogue)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(chickenDialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
     void chickenQuestEnd()
     {
-        TriggerDialogue();
+        TriggerDialogue(chickenDialogue);
+    }
+
+    public void nestMessage()
+    {    
+        if (chickenQuest == 6)
+        {
+            TriggerDialogue(nestDialogue);
+        }
     }
 }

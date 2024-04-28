@@ -12,6 +12,7 @@ TagManager:
   - Fire
   - Lantern
   - Egg
+  - Nest
   layers:
   - Default
   - TransparentFX
