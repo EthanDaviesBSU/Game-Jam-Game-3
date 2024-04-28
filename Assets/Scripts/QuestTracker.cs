@@ -10,6 +10,13 @@ public class QuestTracker : MonoBehaviour
     public Dialogue chickenDialogue;
     public Dialogue nestDialogue;
 
+    public bool bobComplete = false;
+    public bool chickenComplete = false;
+    public bool fergComplete = false;
+    public bool carComplete = false;
+    public bool rabbitComplete = false;
+    public bool goatComplete = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +42,11 @@ public class QuestTracker : MonoBehaviour
         }
     }
 
+    public void bobQuestEnd()
+    {
+        bobComplete = true;
+    }
+
     public void TriggerDialogue(Dialogue dialogue)
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -42,6 +54,7 @@ public class QuestTracker : MonoBehaviour
 
     void chickenQuestEnd()
     {
+        chickenComplete = true;
         TriggerDialogue(chickenDialogue);
     }
 
