@@ -10,11 +10,12 @@ public class QuestTracker : MonoBehaviour
     public Dialogue chickenDialogue;
     public Dialogue nestDialogue;
     public Dialogue fergDialogue;
+    public Dialogue rabbitDialogue;
 
     public bool bobComplete = false;
     public bool chickenComplete = false;
     public bool fergComplete = false;
-    public bool carComplete = false;
+    public bool catComplete = false;
     public bool rabbitComplete = false;
     public bool goatComplete = false;
 
@@ -71,5 +72,11 @@ public class QuestTracker : MonoBehaviour
     {
         fergComplete = true;
         TriggerDialogue(fergDialogue);
+    }
+
+    public void rabbitQuestEnd()
+    {
+        rabbitComplete = true;
+        TriggerDialogue(rabbitDialogue);
     }
 }
