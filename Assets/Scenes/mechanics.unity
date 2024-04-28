@@ -1546,6 +1546,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: kind
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1556,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1805988210}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1567,7 +1571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleSwitched
+      value: fergQuestEnd
       objectReference: {fileID: 0}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1575,7 +1579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Switch, Assembly-CSharp
+      value: QuestTracker, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: whenInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5699,6 +5703,10 @@ MonoBehaviour:
     name: Nest
     sentences:
     - That should be all of them!
+  fergDialogue:
+    name: Ferg
+    sentences:
+    - ...thanks..
   bobComplete: 0
   chickenComplete: 0
   fergComplete: 0

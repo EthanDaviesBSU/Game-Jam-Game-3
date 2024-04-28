@@ -9,6 +9,7 @@ public class QuestTracker : MonoBehaviour
 
     public Dialogue chickenDialogue;
     public Dialogue nestDialogue;
+    public Dialogue fergDialogue;
 
     public bool bobComplete = false;
     public bool chickenComplete = false;
@@ -64,5 +65,11 @@ public class QuestTracker : MonoBehaviour
         {
             TriggerDialogue(nestDialogue);
         }
+    }
+
+    public void fergQuestEnd()
+    {
+        fergComplete = true;
+        TriggerDialogue(fergDialogue);
     }
 }
