@@ -11,10 +11,12 @@ public class Movement : MonoBehaviour
     private bool isMoving = false;
     public Transform target;
     private Rigidbody2D _RigidBody;
+    private Collider2D _FootCollider;
     // Start is called before the first frame update
     void Start()
     {
         _RigidBody = GetComponent<Rigidbody2D>();
+        _FootCollider = GetComponent<BoxCollider2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -23,11 +25,13 @@ public class Movement : MonoBehaviour
             {
                 transform.position = new Vector3(1.0f, 1.0f, 1.0f);
             }
-    
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.gameObject.tag == "Floor")
         {
             isJump = false;
-            movementEase = 0.5f;
         }
     }
 
