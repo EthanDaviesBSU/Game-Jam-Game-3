@@ -7,8 +7,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     public float jumpVelocity;
     public bool isJump = false;
-    private float inAir = 1;
-    private float movementEase = 0;
+    public float movementEase = 0.5f;
     private bool isMoving = false;
     public Transform target;
     private Rigidbody2D _RigidBody;
@@ -28,18 +27,10 @@ public class Movement : MonoBehaviour
         if(collision.gameObject.tag == "Floor")
         {
             isJump = false;
-            inAir = 1f;
             movementEase = 0.5f;
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Floor")
-        {
-            isJump = true;  
-        }
-    }
 
     // Update is called once per frame
     void Update()
@@ -47,20 +38,20 @@ public class Movement : MonoBehaviour
         if (Input.GetKey("a"))
         {
             isMoving = true;
-            if (movementEase < 1)
+            if (movementEase < 1.25)
             {
-                movementEase += 1 * Time.deltaTime;
+                movementEase += 0.5f * Time.deltaTime;
             }
-            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * moveSpeed * inAir * movementEase, Space.World);
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * moveSpeed * movementEase, Space.World);
         }
         if (Input.GetKey("d"))
         {
             isMoving = true;
-            if (movementEase < 1)
+            if (movementEase < 1.25)
             {
-                movementEase += 1 * Time.deltaTime;
+                movementEase += 0.5f * Time.deltaTime;
             }
-            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * moveSpeed * inAir * movementEase, Space.World);
+            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * moveSpeed * movementEase, Space.World);
         }
         if (Input.GetKeyUp("a"))
         {
@@ -72,17 +63,13 @@ public class Movement : MonoBehaviour
         }
         if (!isMoving)
         {
-            movementEase = 0;
+            movementEase = 0.5f;
         }
         if (Input.GetKey ("space") && !isJump)
         {
             _RigidBody.AddForce(Vector2.up * jumpVelocity);
             isJump = true;
         }
-
-        if(isJump == true)
-        {
-            inAir = 0.5f;
-        }
+        
     }
 }
