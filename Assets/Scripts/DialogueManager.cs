@@ -9,10 +9,16 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public Button choiceA;
+    public Button choiceB;
+    public Button choiceC;
+
+    public bool isChoices;
 
     public Animator animator;
 
     private Queue<string> sentences;
+    private string[] choices;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +39,17 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        isChoices = false;
+
+        if(dialogue.choices.Length > 0)
+        {
+            isChoices = true;
+            for(int i = 0; i < dialoge.choices.Length; i++)
+            {
+                choices[i] = dialogue.choices.name;
+            }
+        }
+
         DisplayNextSentence();
     }
 
@@ -43,6 +60,11 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
+        if (sentences.Count == 1 && isChoices)
+        {
+            DisplayChoiceButtons();
+        }
+
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -62,5 +84,14 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+    }
+
+    public void DisplayChoiceButtons()
+    {
+        choiceA.gameObject.SetActive(true);
+        choiceB.gameObject.SetActive(true);
+        choiceC.gameObject.SetActive(true);
+
+        choiceB.clicked;
     }
 }
