@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour
     public Button choiceA;
     public Button choiceB;
     public Button choiceC;
+    public Button continueButton;
+
+    public Transform target;
 
     public bool isChoices;
 
@@ -44,10 +47,6 @@ public class DialogueManager : MonoBehaviour
         if(dialogue.choices.Length > 0)
         {
             isChoices = true;
-            for(int i = 0; i < dialoge.choices.Length; i++)
-            {
-                choices[i] = dialogue.choices.name;
-            }
         }
 
         DisplayNextSentence();
@@ -55,12 +54,13 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        continueButton.gameObject.SetActive(true);
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-        if (sentences.Count == 1 && isChoices)
+        if (sentences.Count == 3 && isChoices)
         {
             DisplayChoiceButtons();
         }
@@ -91,7 +91,32 @@ public class DialogueManager : MonoBehaviour
         choiceA.gameObject.SetActive(true);
         choiceB.gameObject.SetActive(true);
         choiceC.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(false);
 
-        choiceB.clicked;
+        choiceA.onClick.AddListener(delegate{OnClick(false);}); 
+        choiceB.onClick.AddListener(delegate{OnClick(true);});  
+        choiceC.onClick.AddListener(delegate{OnClick(false);}); 
+    }
+
+    public void OnClick(bool success)
+    {
+        if (success)
+        {
+            DisplayNextSentence();
+            DisplayNextSentence();
+            choiceA.gameObject.SetActive(false);
+            choiceB.gameObject.SetActive(false);
+            choiceC.gameObject.SetActive(false);
+        }
+        else
+        {
+            DisplayNextSentence();
+            choiceA.gameObject.SetActive(false);
+            choiceB.gameObject.SetActive(false);
+            choiceC.gameObject.SetActive(false);
+            continueButton.gameObject.SetActive(false);
+            target.transform.position = new Vector3(-4.0f, 2.0f, 1.0f);
+            Invoke("EndDialogue", 1.0f);
+        }
     }
 }

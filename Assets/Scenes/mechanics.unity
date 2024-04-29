@@ -3453,6 +3453,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4237537051680514411, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: dialogue.name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7724380524029068566, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: m_Name
       value: Goat (Interacted with)
@@ -12690,6 +12702,8 @@ MonoBehaviour:
   choiceA: {fileID: 946185885}
   choiceB: {fileID: 1575487266}
   choiceC: {fileID: 900069515}
+  continueButton: {fileID: 1238995622}
+  target: {fileID: 1805988216}
   isChoices: 0
   animator: {fileID: 1820632389}
 --- !u!4 &1810183611
@@ -14503,7 +14517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: dialogue.choices.Array.data[0]
@@ -14531,7 +14545,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: What is -equation-?
+      value: -equation-
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: WRONG!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706038415193384311, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Correct!
       objectReference: {fileID: 0}
     - target: {fileID: 7724380524029068566, guid: 731c252f49da39b4dbb0b162ef486ca3, type: 3}
       propertyPath: m_Name
